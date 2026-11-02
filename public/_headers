@@ -1,0 +1,14 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/gerente.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/config.js
+  Cache-Control: no-store
+
+/sw.js
+  Cache-Control: no-cache

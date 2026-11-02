@@ -1,0 +1,12 @@
+# Não envie dados privados junto com os arquivos de publicação.
+.env
+.env.*
+.dev.vars
+*.xlsx
+*.xls
+*.rar
+*.zip
+*senha*
+*SENHA*
+node_modules/
+.DS_Store

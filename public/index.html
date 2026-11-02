@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#21170f">
+  <meta id="meta-description" name="description" content="Mocotó Café Pinheiros — experiência digital do cliente">
+  <link rel="icon" href="assets/mocoto-logo.webp" type="image/webp">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Mocotó Café Pinheiros · Experiência</title>
+  <script src="config.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="review-score.js" defer></script>
+  <script src="loyalty.js" defer></script>
+  <script src="access-counter.js" defer></script>
+  <script src="menu-zoom.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Sprite de ícones locais: sem biblioteca/CDN externa. -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7a8 8 0 0 0-9-2v14a8 8 0 0 1 9 2m0-14a8 8 0 0 1 9-2v14a8 8 0 0 0-9 2m0-14v14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.75 5.8 6.25.85-4.55 4.45 1.1 6.25L12 17.4l-5.55 2.95 1.1-6.25L3 9.65l6.25-.85z"/></symbol>
+    <symbol id="i-stamp" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h.01M12 9h.01M17 9h.01M7 15h.01M12 15h.01M17 15h.01" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2z"/><path d="M12 7v10" stroke-dasharray="2 3"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.75 5.25L19 10l-5.25 1.75L12 17l-1.75-5.25L5 10l5.25-1.75zM19 17l.75 1.25L21 19l-1.25.75L19 21l-.75-1.25L17 19l1.25-.75zM5 3l.75 1.25L7 5l-1.25.75L5 7l-.75-1.25L3 5l1.25-.75z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5A8.6 8.6 0 0 1 7 18.7L3 20l1.3-4A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8.5 11.5h7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.6h.01" stroke-width="3"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l5 6m0-6-5 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M20 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 7h14v7a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6zM18 8h1a3 3 0 0 1 0 6h-1M8 3v2m5-2v2"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+  </svg>
+  <div id="background" class="background" aria-hidden="true">
+    <video id="background-video" muted loop playsinline autoplay preload="none"></video>
+    <div class="background-shade"></div>
+  </div>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-inline"><img id="header-logo" src="assets/mocoto-logo.webp" alt=""><span id="header-name">Mocotó Café Pinheiros</span></div>
+      <div class="topbar-right">
+        <div class="languages" role="group" aria-label="Idioma / Language / Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt" aria-label="Português (Brasil)" title="Português" aria-pressed="true"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="br-clip"><circle cx="24" cy="24" r="23"/></clipPath></defs><g clip-path="url(#br-clip)"><path fill="#229E45" d="M0 0h48v48H0z"/><path fill="#FFDA38" d="m24 6 19 18-19 18L5 24z"/><circle cx="24" cy="24" r="10" fill="#284AA0"/><path d="M15.3 21.2c6.5-2.7 12.6-1.9 17.3 2" fill="none" stroke="#fff" stroke-width="2"/></g></svg></button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English (United States)" title="English" aria-pressed="false"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="us-clip"><circle cx="24" cy="24" r="23"/></clipPath></defs><g clip-path="url(#us-clip)"><path fill="#fff" d="M0 0h48v48H0z"/><path stroke="#CB3C4B" stroke-width="6" stroke-dasharray="3 3" d="M0 3h48M0 15h48M0 27h48M0 39h48"/><path fill="#29477F" d="M0 0h22v24H0z"/><path fill="#fff" d="M4 5h2v2H4zM12 5h2v2h-2zM4 13h2v2H4zM12 13h2v2h-2zM8 9h2v2H8zM16 9h2v2h-2zM8 17h2v2H8zM16 17h2v2h-2z"/></g></svg></button>
+          <button type="button" class="lang-btn" data-lang="es" aria-label="Español (España)" title="Español" aria-pressed="false"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="es-clip"><circle cx="24" cy="24" r="23"/></clipPath></defs><g clip-path="url(#es-clip)"><path fill="#AC2637" d="M0 0h48v48H0z"/><path fill="#FFCB42" d="M0 12h48v24H0z"/><path fill="#B33D37" d="M15 18h3v12h-3z"/><path fill="#F8F3DE" d="M13 18h7v2h-7z"/></g></svg></button>
+        </div>
+        <button id="audio-toggle" class="sound-button" type="button" aria-pressed="false" title="Ativar som"><svg class="line-icon"><use href="#i-mute"/></svg><span data-i18n="soundOff">Som desligado</span></button>
+      </div>
+    </header>
+
+    <main class="hero" id="home">
+      <section class="identity">
+        <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">Bem-vindo à nossa casa</span></div>
+        <img id="hero-logo" class="hero-logo" src="assets/mocoto-logo.webp" alt="Logo do estabelecimento" data-i18n-alt="businessLogoAlt">
+        <h1 id="hero-name">Mocotó Café Pinheiros</h1>
+        <p id="hero-description" class="hero-description">Uma experiência para saborear, descobrir e compartilhar.</p>
+        <div class="identity-actions">
+          <button id="intro-button" class="intro-button" type="button"><svg class="line-icon"><use href="#i-play"/></svg><span data-i18n="watchIntro">Conheça nosso espaço</span></button>
+          <span class="experience-pill"><svg class="line-icon"><use href="#i-coffee"/></svg><span data-i18n="experiencePill">Sua experiência começa aqui</span></span>
+        </div>
+      </section>
+      <section class="quick-access" aria-labelledby="nav-heading">
+        <div class="access-heading"><div><p class="access-eyebrow" data-i18n="explore">EXPLORE</p><h2 id="nav-heading" data-i18n="menuTitle">O que você deseja fazer?</h2></div><span class="access-swipe" data-i18n="touchHint">Escolha uma opção</span></div>
+        <div id="action-grid" class="action-grid"></div>
+        <div class="access-foot"><span class="safe-dot"></span><span data-i18n="easyAccess">Tudo a um toque de distância.</span><span id="qr-source"></span></div>
+      </section>
+    </main>
+    <footer class="footer"><span id="footer-name">Mocotó Café Pinheiros</span><span data-i18n="footerLine">Feito para tornar sua visita ainda melhor.</span></footer>
+  </div>
+  <div id="modal-backdrop" class="modal-backdrop" hidden>
+    <section class="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" tabindex="-1">
+      <div class="panel-top"><span class="panel-eyebrow" data-i18n="experience">EXPERIÊNCIA</span><div class="panel-top-actions"><div class="languages panel-languages" role="group" aria-label="Idioma / Language / Idioma" data-i18n-aria-label="languageSelector"><button type="button" class="lang-btn" data-lang="pt" aria-label="Português (Brasil)" aria-pressed="false">PT</button><button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button><button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="false">ES</button></div><button id="close-panel" class="close-button" type="button" aria-label="Fechar" data-i18n-aria-label="close"><svg class="line-icon"><use href="#i-close"/></svg></button></div></div>
+      <div id="panel-content" class="panel-content"></div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="language-transition" class="language-transition" hidden role="status" aria-live="polite" aria-atomic="true">
+    <span class="language-transition-brand">MOCOTÓ CAFÉ</span>
+    <span id="language-transition-status" class="visually-hidden"></span>
+  </div>
+  <!-- Zoom do cardápio: interface independente, sem tocar nos outros módulos. -->
+  <div id="menu-zoom-overlay" class="menu-zoom-overlay" hidden role="dialog" aria-modal="true" aria-label="Cardápio ampliado" data-i18n-aria-label="menuZoomTitle">
+    <div class="menu-zoom-toolbar">
+      <span data-i18n="menuZoomTitle">Cardápio ampliado</span>
+      <div class="languages panel-languages menu-zoom-languages" role="group" aria-label="Idioma / Language / Idioma" data-i18n-aria-label="languageSelector"><button type="button" class="lang-btn" data-lang="pt" aria-label="Português (Brasil)" aria-pressed="false">PT</button><button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button><button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="false">ES</button></div>
+      <div class="menu-zoom-controls">
+        <button type="button" data-menu-control="minus" aria-label="Diminuir zoom" data-i18n-aria-label="zoomOut">−</button>
+        <button type="button" data-menu-control="reset" aria-label="Ajustar à tela" data-i18n-aria-label="zoomReset">100%</button>
+        <button type="button" data-menu-control="plus" aria-label="Aumentar zoom" data-i18n-aria-label="zoomIn">+</button>
+        <button type="button" data-menu-control="close" aria-label="Fechar" data-i18n-aria-label="close">×</button>
+      </div>
+    </div>
+    <div id="menu-zoom-viewport" class="menu-zoom-viewport" role="img" aria-label="Cardápio, use os controles para ampliar ou mover" data-i18n-aria-label="menuZoomViewport">
+      <img id="menu-zoom-img" alt="Cardápio completo ampliado" data-i18n-alt="menuZoomImageAlt" draggable="false">
+    </div>
+    <div class="menu-zoom-hint"><span data-i18n="menuZoomHint">Use dois dedos para ampliar, arraste ou use os botões + e −.</span> <a id="menu-original-link" href="assets/cardapiomocoto-original.jpg" target="_blank" rel="noopener" data-i18n="menuOriginal">Abrir original</a></div>
+  </div>
+  <audio id="ambient-audio" loop preload="none"></audio>
+</body>
+</html>

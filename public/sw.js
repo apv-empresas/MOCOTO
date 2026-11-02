@@ -1,0 +1,5 @@
+const CACHE = 'mocoto-experiencia-v4';
+const ASSETS = ['./','./index.html','./styles.css','./config.js','./i18n.js','./app.js','./loyalty.js','./review-score.js','./access-counter.js','./menu-zoom.js','./manifest.webmanifest','./assets/mocoto-logo.webp','./assets/prato-destaque.webp','./assets/cardapiomocoto-original.jpg','./assets/cardapiomocoto-ampliado.jpg'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim()});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;event.respondWith(fetch(event.request).then(response=>{if(response.ok&&!event.request.url.includes('.mp4')&&!event.request.url.includes('.ogg')){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}return response}).catch(()=>caches.match(event.request)))})

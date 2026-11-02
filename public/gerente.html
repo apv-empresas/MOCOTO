@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Gerente · Mocotó Café</title>
+  <link rel="stylesheet" href="gerente.css">
+  <script src="config.js" defer></script>
+  <script src="loyalty.js" defer></script>
+  <script src="gerente.js" defer></script>
+</head>
+<body>
+  <main class="manager-page">
+    <header class="manager-heading">
+      <img src="assets/mocoto-logo.webp" alt="Mocotó Café">
+      <div><span>Mocotó Café Pinheiros</span><h1>Área da gerente</h1></div>
+    </header>
+
+    <section class="panel" id="login-panel" aria-labelledby="login-title">
+      <div class="section-icon" aria-hidden="true">🔒</div>
+      <h2 id="login-title">Digite sua senha</h2>
+      <p>Use os 4 números para acessar os códigos de visita.</p>
+      <form id="login-form">
+        <label for="login-pin">Senha de 4 números</label>
+        <input id="login-pin" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" autocomplete="off" placeholder="••••" required autofocus>
+        <button id="login-button" type="submit">Entrar</button>
+      </form>
+      <p id="login-feedback" class="feedback" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" id="issue-panel" aria-labelledby="issue-title" hidden>
+      <div class="panel-top"><span class="active-label">Acesso liberado</span><button type="button" id="logout-button" class="text-button">Sair</button></div>
+      <div class="section-icon" aria-hidden="true">🎟️</div>
+      <h2 id="issue-title">Gerar código de visita</h2>
+      <p>Informe o celular do cliente e entregue o código gerado. Ele deverá digitá-lo em <strong>Minhas Visitas</strong>.</p>
+      <form id="issue-form">
+        <label for="manager-phone">Celular do cliente com DDD</label>
+        <input id="manager-phone" type="tel" inputmode="tel" placeholder="(11) 99999-9999" autocomplete="off" required>
+        <button type="submit" id="issue-button">Gerar código</button>
+      </form>
+      <div class="code-card" id="issue-result" role="status" aria-live="polite" hidden>
+        <span class="code-label">Código para informar ao cliente</span>
+        <strong class="code-value" id="issued-code"></strong>
+        <span class="code-expiry" id="issued-expiry"></span>
+        <button type="button" class="copy-button" id="copy-button">Copiar código</button>
+      </div>
+      <p id="issue-feedback" class="feedback" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>
